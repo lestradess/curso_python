@@ -1,13 +1,4 @@
-class Dino:
-    color = None
-    nombre = None
+import pruebas.suma as suma
 
-    def __init__(self, color, nombre):
-        self.nombre = nombre
-        self.color = color
-
-
-d = Dino("Rojo", "Dark")
-print(d.color)
-print(d.nombre)
+print(suma.suma(2,3))
 
