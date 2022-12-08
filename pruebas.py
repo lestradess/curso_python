@@ -1,28 +1,10 @@
-from tkinter import *
+import sqlite3
+# abrir conexión
+db = sqlite3.connect("borrar.db")
+# Abrir cursor
+cursor = db.cursor()
+rows = cursor.execute("INSERT INTO users VALUES ('2','lolo','cdsf','miclave')")
+db.commit()
 
-root = Tk()
-root.geometry("150x150")
-root.title("Elegir opción")
-
-def seleccion():
-    label.config(text="Eres {}".format(opcion.get()))
-
-def reset():
-    opcion.set("None")
-    label.config(text="")
-
-
-opcion = StringVar()
-opcion.set("None")
-
-Radiobutton(root, text="Hola", var=opcion,value=" Español", command=seleccion).pack()
-Radiobutton(root, text="Hello", var=opcion,value=" Inglés", command=seleccion).pack()
-Radiobutton(root, text="Hallo", var=opcion,value=" Alemán", command=seleccion).pack()
-
-label = Label(root)
-label.pack()
-
-Button(root, text="Reiniciar", command=reset).pack()
-
-root.mainloop()
-
+cursor.close()
+db.close()
